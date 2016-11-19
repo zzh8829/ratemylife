@@ -1,0 +1,15 @@
+extends layout
+
+block content
+  section#home.banner
+    .container
+      .row
+        .col-xs-6.wow.fadeInLeft.animated
+          h3 introducing rate my life
+          h1 Dashboard
+          p
+            | Etiam ullamcorper et turpis eget hendrerit. Praesent varius risus mi, at elementum magna ultricies accumsan. Cras venenatis lacus sed dolor placerat tempus. Morbi blandit at neque ut imperdiet.
+          button(onclick="goTo('/auth/facebook')").download-btn Start Now
+          button(onclick="goToAnchor('#features')").features-btn View features
+        .col-xs-6.banner-img.wow.fadeInRight.animated
+          img.img-responsive(src='img/verticle-phone.png', alt='')

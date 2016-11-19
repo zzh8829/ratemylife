@@ -93,6 +93,7 @@ passport.use(new FacebookStrategy({
     User.findOne({ facebook: profile.id }, (err, existingUser) => {
       if (err) { return done(err); }
       if (existingUser) {
+        req.session.returnTo = "/dashboard";
         return done(null, existingUser);
       }
       User.findOne({ email: profile._json.email }, (err, existingEmailUser) => {

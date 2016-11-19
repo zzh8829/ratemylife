@@ -9,7 +9,11 @@ block content
           h1 Life Based Insurance
           p
             | Etiam ullamcorper et turpis eget hendrerit. Praesent varius risus mi, at elementum magna ultricies accumsan. Cras venenatis lacus sed dolor placerat tempus. Morbi blandit at neque ut imperdiet.
-          button(onclick="goTo('/auth/facebook')").download-btn Start Now
+          if !user
+            button(onclick="goTo('/auth/facebook')").download-btn Start Now
+          else
+            button(onclick="goTo('/dashboard')").download-btn Start Now
+  
           button(onclick="goToAnchor('#features')").features-btn View features
         .col-xs-6.banner-img.wow.fadeInRight.animated
           img.img-responsive(src='img/verticle-phone.png', alt='')

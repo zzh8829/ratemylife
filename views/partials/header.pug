@@ -26,6 +26,8 @@ header.top-header
             li
               a(href='/auth/facebook') Login
           else
+            li
+              a(onclick="goTo('/dashboard')") Dashboard
             li.dropdown(class=(title == 'Account Management') ? 'zactive' : undefined)
               a.dropdown-toggle(href='#', data-toggle='dropdown')
                 if user.profile.picture
