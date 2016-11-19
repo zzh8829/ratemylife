@@ -1,27 +1,114 @@
 extends layout
 
 block content
-  h1 Hackathon Starter
-  p.lead A boilerplate for Node.js web applications.
+  section#home.banner
+    .container
+      .row
+        .col-xs-6.wow.fadeInLeft.animated
+          h3 introducing rate my life
+          h1 Life Based Insurance
+          p
+            | Etiam ullamcorper et turpis eget hendrerit. Praesent varius risus mi, at elementum magna ultricies accumsan. Cras venenatis lacus sed dolor placerat tempus. Morbi blandit at neque ut imperdiet.
+          button(onclick="goTo('/auth/facebook')").download-btn Start Now
+          button(onclick="goToAnchor('#features')").features-btn View features
+        .col-xs-6.banner-img.wow.fadeInRight.animated
+          img.img-responsive(src='img/verticle-phone.png', alt='')
+  // end of banner section
+  // feature sectiona
+  section#features.features.text-center
+    .container
+      .row
+        h4 product overview
+        h2 List of amazing features
+        img.img-responsive(src='img/daag.png', alt='')
+        .col-md-3.wow.zoomIn.animated
+          i.fa.fa-desktop
+          h3 Responsive
+          p
+            | Fusce fermentum placerat magna ac pharetra. Aliquam euismod elit non ipsum lacinia consectetur.
+        .col-md-3.wow.zoomIn.animated
+          i.fa.fa-cog
+          h3 Customizable
+          p
+            | Fusce fermentum placerat magna ac pharetra. Aliquam euismod elit non ipsum lacinia consectetur.
+        .col-md-3.wow.zoomIn.animated
+          i.fa.fa-facebook
+          h3 Lovely design
+          p
+            | Fusce fermentum placerat magna ac pharetra. Aliquam euismod elit non ipsum lacinia consectetur.
+        .col-md-3.wow.zoomIn.animated
+          i.fa.fa-mobile
+          h3 Mobile Friendly
+          p
+            | Fusce fermentum placerat magna ac pharetra. Aliquam euismod elit non ipsum lacinia consectetur.
+  // end of features section
   hr
-  .row
-    .col-sm-6
-      h2 Heading
-      p Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-      p
-        a.btn.btn-default(href='#', role='button') View details »
-    .col-sm-6
-      h2 Heading
-      p Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-      p
-        a.btn.btn-default(href='#', role='button') View details »
-    .col-sm-6
-      h2 Heading
-      p Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-      p
-        a.btn.btn-default(href='#', role='button') View details »
-    .col-sm-6
-      h2 Heading
-      p Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-      p
-        a.btn.btn-default(href='#', role='button') View details »
+  // details section
+  section#about.details
+    .container
+      .row
+        .col-md-5.col-xs-6.col-sm-6.wow.slideInUp.animated
+          img.img-responsive.details-phone(src='img/verticle-phone.png', alt='')
+        .col-md-6.col-md-offset-1.col-xs-6.col-sm-6.wow.slideInUp.animated
+          h4 dip into the details
+          h2 Beautiful on every device
+          img.img-responsive(src='img/daag.png', alt='')
+          p
+            | Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non  mauris vitae erat consequat auctor eu in elit.
+          ul
+            li
+              i.fa.fa-trophy
+              | Awesome design
+            li
+              i.fa.fa-mobile
+              | Fully responsive
+            li
+              i.fa.fa-bolt
+              |  Retina ready
+            li
+              i.fa.fa-tachometer
+              | Tons of features and easy to use
+  // end of details section
+  // features details section
+  section.feature-detail
+    .container
+      .row
+        .col-xs-5.wow.fadeInLeft.animated
+          h4 dip into the details
+          h2 Super easy to customize
+          img(src='img/daag.png', alt='')
+          p
+            | Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non  mauris vitae erat consequat auctor eu in elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
+        .col-xs-7.horizontal-phone.wow.fadeInRight.animated
+          img.img-responsive(src='img/laid-phone2.png', alt='phone')
+  // end of features-detail section
+  // contact section
+  section#contact.contact.text-center
+    .container
+      .row
+        .contact-heading
+          h4 stay in touch
+          h2 Contact us
+        .col-md-2.col-md-offset-1.col-xs-4.col-sm-4
+          i.fa.fa-phone
+          p Phone: (519) 999-9999
+          p Fax: (519) 999-9999
+        .col-md-2.col-md-offset-2.col-xs-4.col-sm-4
+          i.fa.fa-map-marker
+          p 88 Queens Quay West
+          p Suite 2900 
+          p Toronto, ON
+        .col-md-2.col-md-offset-2.col-xs-4.col-sm-4.clearfix
+          i.fa.fa-envelope-o
+          p info@gmail.com
+          p support@gmail.com
+        .col-md-8.col-md-offset-2.col-xs-12.col-sm-12
+          article.contact-form
+            form(action='contact')
+              .col-md-5.col-md-offset-1.contact-form-left
+                input.name(type='text', placeholder='NAME*')
+                input.email(type='email', placeholder='EMAIL*')
+                input.subject(type='text', placeholder='SUBJECT*')
+              .col-md-5.contact-form-right.text-right
+                textarea#message.message(name='message', cols='30', rows='10', placeholder='MESSAGE')
+                input.submit-btn(type='submit', value='send message')

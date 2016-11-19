@@ -4,23 +4,26 @@ html
     meta(charset='utf-8')
     meta(http-equiv='X-UA-Compatible', content='IE=edge')
     meta(name='viewport', content='width=device-width, initial-scale=1.0')
-    meta(name='theme-color' content='#4DA5F4')
+    meta(name='theme-color' content='#212326')
     meta(name='csrf-token', content=_csrf)
-    title #{title} - Hackathon Starter
-    link(rel='shortcut icon', href='/favicon.png')
+    title #{title} - best rate based on your life
+    link(rel='shortcut icon', href='/favicon.ico')
+    link(rel='stylesheet', href='/css/font-awesome.min.css')
+    link(rel='stylesheet', href='/css/bootstrap.min.css')
+    link(rel='stylesheet', href='/css/animate.min.css')
+    link(rel='stylesheet', href='/css/responsive.css')
+    link(href='http://fonts.googleapis.com/css?family=Open+Sans:600italic,400,800,700,300', rel='stylesheet', type='text/css')
     link(rel='stylesheet', href='/css/main.css')
-
+    script(src='//cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js')
   body
     include partials/header
-
-    .container
-      include partials/flash
-      block content
-
+    include partials/flash
+    block content
     include partials/footer
 
-    script(src='/js/lib/jquery-2.2.4.min.js')
-    script(src='/js/lib/bootstrap.min.js')
+    script(src='/js/jquery-2.1.1.js')
+    script(src='/js/bootstrap.min.js')
+    script(src='/js/wow.js')
     script(src='/js/main.js')
 
     // Google Analytics: change UA-XXXXX-X to be your site's ID
