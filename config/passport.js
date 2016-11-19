@@ -111,6 +111,7 @@ passport.use(new FacebookStrategy({
           user.profile.picture = `https://graph.facebook.com/${profile.id}/picture?type=large`;
           user.profile.location = (profile._json.location) ? profile._json.location.name : '';
           user.save((err) => {
+            req.session.returnTo = "/dashboard";
             done(err, user);
           });
         }
