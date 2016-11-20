@@ -574,3 +574,13 @@ body {
   z-index:9999; 
   border-radius:0px
 }
+
+.navbar li .fa {
+	font-size: 1.3em;
+}
+
+.main-header .navbar .nav>li>a>span.label {
+	right: 10px;
+	top: 4px;
+  font-size: 0.8em;
+}
