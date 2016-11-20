@@ -65,7 +65,7 @@ passport.use(new FacebookStrategy({
   clientID: process.env.FACEBOOK_ID,
   clientSecret: process.env.FACEBOOK_SECRET,
   callbackURL: '/auth/facebook/callback',
-  profileFields: ['name', 'email', 'link', 'locale', 'timezone'],
+  profileFields: ['name', 'email', 'link', 'locale', 'timezone', 'gender'],
   passReqToCallback: true
 }, (req, accessToken, refreshToken, profile, done) => {
   if (req.user) {
@@ -99,8 +99,18 @@ passport.use(new FacebookStrategy({
       User.findOne({ email: profile._json.email }, (err, existingEmailUser) => {
         if (err) { return done(err); }
         if (existingEmailUser) {
-          req.flash('errors', { msg: 'There is already an account using this email address. Sign in to that account and link it with Facebook manually from Account Settings.' });
-          done(err);
+          const user = existingEmailUser;
+          user.email = profile._json.email;
+          user.facebook = profile.id;
+          user.tokens.push({ kind: 'facebook', accessToken });
+          user.profile.name = `${profile.name.givenName} ${profile.name.familyName}`;
+          user.profile.gender = profile._json.gender;
+          user.profile.picture = `https://graph.facebook.com/${profile.id}/picture?type=large`;
+          user.profile.location = (profile._json.location) ? profile._json.location.name : '';
+          user.save((err) => {
+            req.session.returnTo = "/dashboard";
+            done(err, user);
+          });
         } else {
           const user = new User();
           user.email = profile._json.email;
